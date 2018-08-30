@@ -3,6 +3,8 @@ project(imu_tk)
 cmake_minimum_required (VERSION 2.8) 
 cmake_policy(SET CMP0015 NEW)
 
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}  -std=c++0x")
+
 if ("${CMAKE_BUILD_TYPE}" STREQUAL "")
   set(CMAKE_BUILD_TYPE "Release")
 endif()
@@ -10,6 +12,8 @@ endif()
 if(NOT DEFINED BUILD_IMU_TK_EXAMPLES)
   set(BUILD_IMU_TK_EXAMPLES "ON")
 endif(NOT DEFINED BUILD_IMU_TK_EXAMPLES)
+
+LIST(APPEND CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake_modules)
 
 find_package(Boost REQUIRED)  
 find_package(Eigen3 REQUIRED)
